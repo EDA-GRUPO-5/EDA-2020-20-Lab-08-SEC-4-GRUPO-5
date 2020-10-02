@@ -39,7 +39,7 @@ tablas de simbolos.
 """
 
 # -----------------------------------------------------
-# API del TAD Catalogo de Libros
+# API del TAD Catalogo de accidentes
 # -----------------------------------------------------
 
 
