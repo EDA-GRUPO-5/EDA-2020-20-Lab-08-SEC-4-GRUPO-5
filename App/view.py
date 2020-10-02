@@ -54,7 +54,6 @@ def printMenu():
     print("1- Inicializar Analizador")
     print("2- Cargar información de accidentes")
     print("3- Conocer los accidentes en una fecha")
-    print("4- Conocer los accidentes anteriores a una fecha")
     print("0- Salir")
     print("*******************************************")
 
@@ -98,12 +97,6 @@ while True:
             " Sus severidades fueron: \n\nSeveridad 1: " + str(severity1) + "\nSeveridad 2: " + str(severity2) +
             "\nSeveridad 3: " + str(severity3) + "\nSeveridad 4: " + str(severity4))
         print("\nTiempo de ejecución: " + str(time))
-
-    elif int(inputs[0]) == 4:
-        beforeDate = input("\nIngrese la fecha (YYYY-MM-DD): ")
-        print("\nBuscando accidentes antes de " + initialDate + "....")
-        lst = controller.getAccidentsBeforeDate(cont, beforeDate)
-        print("\nTotal de llaves en el rango: " + str(lt.size(lst)))
 
     else:
         sys.exit(0)
