@@ -184,20 +184,6 @@ def getAccidentsBySeverity(analyzer, initialDate, severity):
             return m.size(me.getValue(numseverities)['lstseverities'])
         return 0
 
-def getAccidentsByRange(analyzer, initialDate, finalDate):
-    """
-    Retorna el numero de acidentes en un rago de fechas.
-    """
-    lst = om.values(analyzer['dateIndex'], initialDate, finalDate)
-    return lst
-    
-def getAccidentsBeforeDate(analyzer, beforeDate):
-    initialDate = str(minKey(analyzer))
-    initialDate = datetime.datetime.strptime(initialDate, '%Y-%m-%d')
-    lst = getAccidentsByRange(analyzer, initialDate.date(), beforeDate)
-    
-    return lst
-
 
 # ==============================
 # Funciones de Comparacion
