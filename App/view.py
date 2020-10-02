@@ -53,7 +53,7 @@ def printMenu():
     print("Bienvenido")
     print("1- Inicializar Analizador")
     print("2- Cargar información de accidentes")
-    print("3- Conocer los accidentes en una fecha")
+    print("3- Conocer los accidentes en una fecha (REQ 1)")
     print("0- Salir")
     print("*******************************************")
 
