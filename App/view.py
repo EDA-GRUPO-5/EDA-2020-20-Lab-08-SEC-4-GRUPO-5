@@ -47,7 +47,7 @@ large_2018 = 'us_accidents_dis_2018.csv'
 large_2019 = 'us_accidents_dis_2019.csv'
 small = 'us_accidents_small.csv'
 smaller = 'us_accidents_smaller.csv'
-accidentsfile = small
+accidentsfile = large_2016
 
 # ___________________________________________________
 #  Menu principal
@@ -92,7 +92,6 @@ while True:
 
     elif int(inputs[0]) == 3:
         initialDate = input("\nIngrese la fecha (YYYY-MM-DD): ")
-        print("\nBuscando accidentes de " + initialDate + "....")
         t1_start = process_time()
         severityTuple = controller.getAccidentsBySeverity(cont,initialDate)
         t1_stop= process_time()
@@ -101,6 +100,7 @@ while True:
         elif severityTuple == "formato":
             print("\nPor favor ingrese un formato de fecha válido.")
         else:
+            print("\nBuscando accidentes de " + initialDate + "....")
             print("\nEn " + initialDate + " ocurrieron " + str(severityTuple[0]) + " accidentes." + 
                 " Sus severidades fueron: \n\nSeveridad 1: " + str(severityTuple[1]) + "\nSeveridad 2: " + str(severityTuple[2]) +
                 "\nSeveridad 3: " + str(severityTuple[3]) + "\nSeveridad 4: " + str(severityTuple[4]))        
