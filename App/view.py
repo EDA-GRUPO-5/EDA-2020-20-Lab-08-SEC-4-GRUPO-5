@@ -47,7 +47,7 @@ large_2018 = 'us_accidents_dis_2018.csv'
 large_2019 = 'us_accidents_dis_2019.csv'
 small = 'us_accidents_small.csv'
 smaller = 'us_accidents_smaller.csv'
-accidentsfile = large_2016
+accidentsfile = small
 
 # ___________________________________________________
 #  Menu principal
