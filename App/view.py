@@ -26,7 +26,8 @@ from DISClib.ADT import list as lt
 from time import process_time 
 from App import controller
 assert config
-
+from DISClib.ADT import orderedmap as om
+import datetime
 
 """
 La vista se encarga de la interacción con el usuario.
@@ -39,8 +40,14 @@ operación seleccionada.
 #  Ruta a los archivos
 # ___________________________________________________
 
-
-accidentsfile = 'us_accidents_small.csv'
+large = 'US_Accidents_Dec19.csv'
+large_2016 = 'us_accidents_dis_2016.csv'
+large_2017 = 'us_accidents_dis_2017.csv'
+large_2018 = 'us_accidents_dis_2018.csv'
+large_2019 = 'us_accidents_dis_2019.csv'
+small = 'us_accidents_small.csv'
+smaller = 'us_accidents_smaller.csv'
+accidentsfile = small
 
 # ___________________________________________________
 #  Menu principal
@@ -81,23 +88,25 @@ while True:
         print('Menor Llave: ' + str(controller.minKey(cont)))
         print('Mayor Llave: ' + str(controller.maxKey(cont)))
         time = t1_stop - t1_start
-        print("Tiempo de ejecución: " + str(time))
+        print("\nTiempo de ejecución: " + str(time))
 
     elif int(inputs[0]) == 3:
         initialDate = input("\nIngrese la fecha (YYYY-MM-DD): ")
         print("\nBuscando accidentes de " + initialDate + "....")
         t1_start = process_time()
-        severity1 = int(controller.getAccidentsBySeverity(cont, initialDate, '1'))
-        severity2 = int(controller.getAccidentsBySeverity(cont, initialDate, '2'))
-        severity3 = int(controller.getAccidentsBySeverity(cont, initialDate, '3'))
-        severity4 = int(controller.getAccidentsBySeverity(cont, initialDate, '4'))
+        severityTuple = controller.getAccidentsBySeverity(cont,initialDate)
         t1_stop= process_time()
-        severities = severity1+severity2+severity3+severity4
-        print("\nEn " + initialDate + " ocurrieron " + str(severities) + " accidentes." + 
-            " Sus severidades fueron: \n\nSeveridad 1: " + str(severity1) + "\nSeveridad 2: " + str(severity2) +
-            "\nSeveridad 3: " + str(severity3) + "\nSeveridad 4: " + str(severity4))
+        if severityTuple == "fecha":
+            print('\nPor favor ingrese una fecha que se encuentre en el archivo.')
+        elif severityTuple == "formato":
+            print("\nPor favor ingrese un formato de fecha válido.")
+        else:
+            print("\nEn " + initialDate + " ocurrieron " + str(severityTuple[0]) + " accidentes." + 
+                " Sus severidades fueron: \n\nSeveridad 1: " + str(severityTuple[1]) + "\nSeveridad 2: " + str(severityTuple[2]) +
+                "\nSeveridad 3: " + str(severityTuple[3]) + "\nSeveridad 4: " + str(severityTuple[4]))        
+        time = t1_stop - t1_start
         print("\nTiempo de ejecución: " + str(time))
-
+        
     else:
         sys.exit(0)
 sys.exit(0)
